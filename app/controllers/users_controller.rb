@@ -45,7 +45,6 @@ class UsersController < ApplicationController
   def view_document
     role = UserType.where(:id => current_user.user_type_id).first.name
     @documents = User.where(id: params[:patient_id]).first.documents
-    byebug
   end
 
   private
