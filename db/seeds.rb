@@ -6,6 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-UserType.create(name: 'Tier1' , value: 2)
-UserType.create(name: 'Tire2' , value: 3)
-UserType.create(name: 'Tire3', value: 4)
+UserType.create(name: 'Doctor')
+UserType.create(name: 'Patient')
+UserType.create(name: 'Pharmacist')

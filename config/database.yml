@@ -13,7 +13,7 @@ default: &default
 development:
   <<: *default
   # database: db/development.sqlite3
-  database: project_miles
+  database: pharmeasy_pdm
 
 
 # Warning: The database defined as "test" will be erased and

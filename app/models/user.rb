@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
          
   has_many :documents, dependent: :destroy
-  has_many :owned_surveys, :class_name => 'Survey', :foreign_key => 'owner_id'
-  has_many :admin_surveys, :class_name => 'Survey', :foreign_key => 'admin_id'  
+  belongs_to :user_type, :foreign_key => 'user_type_id'
+
+  has_many :requested_request_accesses, :class_name => 'RequestAccess', :foreign_key => 'requestor_id', dependent: :destroy
+  has_many :granted_request_accesses, :class_name => 'RequestAccess', :foreign_key => 'grantor_id', dependent: :destroy
+
 end

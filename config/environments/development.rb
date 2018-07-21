@@ -59,7 +59,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
    address: "smtp.gmail.com",
    port: 587,
-   domain: "project_miles",
+   domain: "Pharmeasy_document_management",
    authentication: "plain",
    enable_starttls_auto: true,
    user_name: "chauhanvanya24@gmail.com",

@@ -45,12 +45,12 @@ class UsersController < ApplicationController
   def view_document
     role = UserType.where(:id => current_user.user_type_id).first.name
     @documents = User.where(id: params[:patient_id]).first.documents
-    @documents = @documents.where(type: "prescription") if role == "Pharmacist" || role == "Doctor"
+    byebug
   end
 
   private
 
     def user_params
-      params.require(:user).permit(:username, :email, :type, :password)
+      params.require(:user).permit(:username, :email, :password)
     end
 end

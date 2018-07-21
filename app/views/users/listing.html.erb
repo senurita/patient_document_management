@@ -91,7 +91,7 @@
           <td> Pharmacist </td>
           <% end %>
             
-          <td><%= requestor.requestor.user_type_id %></td>
+          <td> Pending </td>
           <td><%= link_to "Approve", users_approve_request_path({:user_id => current_user.id.to_s, :requestor_id => requestor.requestor.id.to_s}), method: :put %></td>
           <td><%= link_to "Deny", users_deny_request_path({:user_id => current_user.id.to_s, :requestor_id => requestor.requestor.id.to_s}), method: :put %></td>
         </tr>
