@@ -21,7 +21,7 @@ def self.users_listing(user_id,user_type_id)
   end
 
    def self.create_access_request(user_id, patient_id, document_id)
-    RequestAccess.create!(requestor_id: user_id, grantor_id: patient_id, document_id: document_id)
+    RequestAccess.create(requestor_id: user_id, grantor_id: patient_id, document_id: document_id)
      return
   end
 
