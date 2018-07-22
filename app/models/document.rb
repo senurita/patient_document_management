@@ -6,7 +6,7 @@ class Document < ApplicationRecord
   def self.show_documents(user_id,user_type_id,patient_id)
     if user_type_id == USER_MAPPING[1][:id]
       @document = Document.where(:category => RECORD_CATEGORY[0])
-    else
+    elsif user_type_id == USER_MAPPING[3][:id]
       @document = Document.where(:category => RECORD_CATEGORY[1])
     end
     @requested_patients = RequestAccess.where(requestor_id: user_id,grantor_id: patient_id)

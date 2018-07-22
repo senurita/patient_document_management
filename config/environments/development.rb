@@ -62,7 +62,7 @@ Rails.application.configure do
    domain: "Pharmeasy_document_management",
    authentication: "plain",
    enable_starttls_auto: true,
-   user_name: "chauhanvanya24@gmail.com",
-   password: "vanya2324"
+   user_name: ENV['GMAIL_USERNAME'],
+   password: ENV['PASSWORD']
 }
 end
