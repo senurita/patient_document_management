@@ -2,11 +2,11 @@ class UsersController < ApplicationController
 
   def listing
     if user_signed_in?
-      role = UserType.where(:id => current_user.user_type_id).first.name
-      if role == "Doctor" || role == "Pharmacist"
-        @patients = User.where('user_type_id = (?)',2)
-      elsif role == "Patient"
-        @requestors = RequestAccess.where(grantor_id: current_user.id, :status => "pending")
+      user_type_id = current_user.user_type_id
+      if user_type_id == USER_MAPPING[1][:id] || user_type_id == USER_MAPPING[3][:id]
+        @patients = User.where('user_type_id = (?)',USER_MAPPING[2][:id])
+      elsif user_type_id == USER_MAPPING[2][:id]
+        @requestors = RequestAccess.where(grantor_id: current_user.id, :status => RECORD_ACCESS_STATUS[0])
       end
     else
       render :welcome
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def approve_request
     request_access = RequestAccess.where(grantor_id: params[:user_id], requestor_id: params[:requestor_id], document_id: params[:document_id]).first
-    request_access.status = "approved"
+    request_access.status = RECORD_ACCESS_STATUS[1]
     request_access.save!
     listing
     render :listing
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def deny_request
     request_access = RequestAccess.where(grantor_id: params[:user_id], requestor_id: params[:requestor_id], document_id: params[:document_id]).first
-    request_access.status = "denied"
+    request_access.status = RECORD_ACCESS_STATUS[2]
     request_access.save!
     listing
     render :listing
