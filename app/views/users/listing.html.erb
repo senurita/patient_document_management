@@ -32,37 +32,21 @@
       <tr>
         <th>Name</th>
         <th>Email</th>
-        <th>Request Status</th>
+        <th>Select</th>
         <th colspan="1"></th>
       </tr>
       </thead>
 
       <tbody>
-      <% @access_not_requested_patients.each do |patient| %>
+      <% @patients.each do |patient| %>
         <tr>
           <td><%= patient.name %></td>
           <td><%= patient.email %></td>
-          <td><%= link_to "Request Records", users_create_request_path({:user_id => current_user.id.to_s, :patient_id => patient.id.to_s}), method: :post %></td>
+          <td><%= link_to "Select", documents_list_documents_path({:user_id => current_user.id.to_s, :patient_id => patient.id.to_s}), method: :get %></td>
           <td></td>
         </tr>
       <% end %>
-      <% @access_requested_patients.each do |patient| %>
-        <tr>
-          <td><%= patient.grantor.name %></td>
-          <td><%= patient.grantor.email %></td>
-          <% if patient.status == 'approved' %>
-            <td><span class="badge badge-success"><%= patient.status.capitalize %></span></td>
-          <% elsif patient.status == 'pending' %>
-            <td><span class="badge badge-info"><%= patient.status.capitalize %></span></td>
-          <% elsif patient.status == 'denied' %>
-            <td><span class="badge badge-danger"><%= patient.status.capitalize %></span></td>
-          <%end%>
-          <% if patient.status == "approved" %>
-            <td><%= link_to "View Documents", users_view_document_path({:user_id => current_user.id.to_s, :patient_id => patient.grantor.id.to_s}), method: :get %></td>
-          <% end %>
-          <td></td>
-        </tr>
-      <% end %>
+
       </tbody>
     </table>
   <% end %>
@@ -75,6 +59,7 @@
         <th class="field">Name</th>
         <th>Email</th>
         <th>Role</th>
+        <th>File Name</th>
         <th>Status</th>
         <th colspan="1"></th>
       </tr>
@@ -90,10 +75,10 @@
           <% elsif requestor.requestor.user_type_id == 3%>
           <td> Pharmacist </td>
           <% end %>
-            
+          <td><%= requestor.document.file_name %></td>
           <td> Pending </td>
-          <td><%= link_to "Approve", users_approve_request_path({:user_id => current_user.id.to_s, :requestor_id => requestor.requestor.id.to_s}), method: :put %></td>
-          <td><%= link_to "Deny", users_deny_request_path({:user_id => current_user.id.to_s, :requestor_id => requestor.requestor.id.to_s}), method: :put %></td>
+          <td><%= link_to "Approve", users_approve_request_path({:user_id => current_user.id.to_s, :requestor_id => requestor.requestor.id.to_s, :document_id => requestor.document_id}), method: :put %></td>
+          <td><%= link_to "Deny", users_deny_request_path({:user_id => current_user.id.to_s, :requestor_id => requestor.requestor.id.to_s, :document_id => requestor.document_id}), method: :put %></td>
         </tr>
       <% end %>
       </tbody>
