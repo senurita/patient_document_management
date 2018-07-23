@@ -21,29 +21,43 @@ Below are Test Data that are already in system ,
 
 Patient Records
 
-Name        email                   Documents
-Patient-2   patient2@email.com      X-Ray-1,MRI,OPD,Blood Test
-Patient-3   patient3@email.com      X-Ray-1,MRI,OPD,Blood Test
-Patient-4   patient4@email.com      X-Ray-1,MRI,OPD,Blood Test
-Patient-5   patient5@email.com      X-Ray-1,MRI,OPD,Blood Test
-Patient-6   patient6@email.com      X-Ray-1,MRI,OPD,Blood Test
-Patient-7   patient7@email.com      X-Ray-1,MRI,OPD,Blood Test
-Patient-9   patient9@email.com      X-Ray-1,MRI,OPD,Blood Test
+Name        email                   Documents                                    Password
+Patient-2   patient2@email.com      X-Ray-1,MRI,OPD,Blood Test,                  abcd1234
+                                    Pain Presecription,Stomach Presecription,
+                                    Dental Presecription,Cold Presecription       
+Patient-3   patient3@email.com      X-Ray-1,MRI,OPD,Blood Test,     			 abcd1234
+                                    Pain Presecription,Stomach Presecription,
+                                    Dental Presecription,Cold Presecription 
+Patient-4   patient4@email.com      X-Ray-1,MRI,OPD,Blood Test,					 abcd1234
+                                    Pain Presecription,Stomach Presecription,
+                                    Dental Presecription,Cold Presecription
+Patient-5   patient5@email.com      X-Ray-1,MRI,OPD,Blood Test,                  abcd1234
+                                    Pain Presecription,Stomach Presecription,
+                                    Dental Presecription,Cold Presecription
+Patient-6   patient6@email.com      X-Ray-1,MRI,OPD,Blood Test,                  abcd1234
+                                    Pain Presecription,Stomach Presecription,
+                                    Dental Presecription,Cold Presecription
+Patient-7   patient7@email.com      X-Ray-1,MRI,OPD,Blood Test,                  abcd1234
+                                    Pain Presecription,Stomach Presecription,
+                                    Dental Presecription,Cold Presecription
+Patient-9   patient9@email.com      X-Ray-1,MRI,OPD,Blood Test,                  abcd1234
+                                    Pain Presecription,Stomach Presecription,
+                                    Dental Presecription,Cold Presecription
 
 Doctor Records
 
-Name        email                   
-Doctor-1    doctor1@email.com       
-Doctor-2    doctor2@email.com 
-Doctor-3    doctor3@email.com 
-Doctor-4    doctor4@email.com 
+Name        email                 Password          
+Doctor-1    doctor1@email.com      abcd1234 
+Doctor-2    doctor2@email.com      abcd1234
+Doctor-3    doctor3@email.com      abcd1234
+Doctor-4    doctor4@email.com      abcd1234
 
 Pharmacist Records
 
-Name          email
-Pharmacist-1  pharmacist1@gmail.com
-Pharmacist-2  pharmacist2@gmail.com
-Pharmacist-3  pharmacist3@gmail.com
+Name          email                      Password
+Pharmacist-1  pharmacist1@gmail.com      abcd1234
+Pharmacist-2  pharmacist2@gmail.com      abcd1234
+Pharmacist-3  pharmacist3@gmail.com      abcd1234
 
 End to End Testing
 
@@ -83,7 +97,7 @@ Step-3     Patient can either approve or reject the request, after approval or r
            list 
 
 
-             
+
 
 
 
