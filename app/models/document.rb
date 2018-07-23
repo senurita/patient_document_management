@@ -13,7 +13,7 @@ class Document < ApplicationRecord
     if @requested_patients.blank?
       @documents_not_requested = @document.where('user_id = (?)', patient_id)
     else
-      @documents_not_requested = @document.where('id NOT IN (?)', @requested_patients.pluck(:document_id))
+      @documents_not_requested = @document.where('user_id = (?) AND id NOT IN (?)', patient_id, @requested_patients.pluck(:document_id))
     end
     return @requested_patients, @documents_not_requested
 
