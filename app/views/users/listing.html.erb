@@ -13,19 +13,13 @@
       <br/>
       <h4 class="card-text" style="text-decoration: underline">Profile Details: </h4>
       <p class="card-text">Email: <%= current_user.email %></p>
-      <% if current_user.user_type_id == 1 %>
-      <p class="card-text">Role: Doctor</p>
-      <% elsif current_user.user_type_id == 3 %>
-      <p class="card-text">Role: Pharmacist</p>
-      <% else current_user.user_type_id == 2 %>
-      <p class="card-text">Role: Patient</p>
-      <% end %>
+      <p class="card-text">Role: <%=USER_MAPPING[current_user.user_type_id][:role] %></p>
     </div>
   </div>
 
   <br/><br/>
 
-  <% if [1, 3].include? current_user.user_type_id %>
+  <% if [USER_MAPPING[1][:id], USER_MAPPING[3][:id]].include? current_user.user_type_id %>
     <h3>Patients: </h3>
     <table class="table table-striped">
       <thead>
@@ -70,11 +64,7 @@
         <tr>
           <td><%= requestor.requestor.name %></td>
           <td><%= requestor.requestor.email %></td>
-          <% if requestor.requestor.user_type_id == 1%>
-          <td> Doctor </td>
-          <% elsif requestor.requestor.user_type_id == 3%>
-          <td> Pharmacist </td>
-          <% end %>
+          <td> <%=USER_MAPPING[requestor.requestor.user_type_id][:role] %></td>
           <td><%= requestor.document.file_name %></td>
           <td> Pending </td>
           <td><%= link_to "Approve", users_approve_request_path({:user_id => current_user.id.to_s, :requestor_id => requestor.requestor.id.to_s, :document_id => requestor.document_id}), method: :put %></td>
