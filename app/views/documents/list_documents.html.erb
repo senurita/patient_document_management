@@ -27,13 +27,7 @@
           <td><%= patient.document.category %></td>
           <td><%= patient.document.created_at %></td>
           <td><%= patient.document.file_name %></td>
-          <% if patient.status == RECORD_ACCESS_STATUS[1] %>
-            <td><span class="badge badge-success"><%= patient.status.capitalize %></span></td>
-          <% elsif patient.status == RECORD_ACCESS_STATUS[0] %>
-            <td><span class="badge badge-info"><%= patient.status.capitalize %></span></td>
-          <% elsif patient.status == RECORD_ACCESS_STATUS[2] %>
             <td><span class="badge badge-danger"><%= patient.status.capitalize %></span></td>
-          <%end%>
           <% if patient.status == RECORD_ACCESS_STATUS[1] %>
             <td> <button onclick="record_details('<%=patient.document.content%>')">View Document</button></td>
           <% end %>

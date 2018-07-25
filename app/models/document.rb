@@ -4,6 +4,8 @@ class Document < ApplicationRecord
 
 
   def self.show_documents(user_id,user_type_id,patient_id)
+    return unless user_id.present? && user_type_id.present? && patient_id.present?
+
     if user_type_id == USER_MAPPING[1][:id]
       @document = Document.where(:category => RECORD_CATEGORY[0])
     elsif user_type_id == USER_MAPPING[3][:id]
@@ -16,7 +18,6 @@ class Document < ApplicationRecord
       @documents_not_requested = @document.where('user_id = (?) AND id NOT IN (?)', patient_id, @requested_patients.pluck(:document_id))
     end
     return @requested_patients, @documents_not_requested
-
   end
 
 end

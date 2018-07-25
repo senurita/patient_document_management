@@ -40,12 +40,11 @@
           <td></td>
         </tr>
       <% end %>
-
       </tbody>
     </table>
   <% end %>
 
-  <% if current_user.user_type_id == 2 %>
+  <% if current_user.user_type_id == USER_MAPPING[2][:id] %>
     <h3>Requests Pending for Approval:</h3>
     <table class="table table-striped">
       <thead>
